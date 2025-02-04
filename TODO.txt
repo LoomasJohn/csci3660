@@ -1,0 +1,7 @@
+Make sure everyone has git installed and setup properly.
+Create the login screen.
+Add functionality to the login screen, it should:
+    -be the first page to show up
+    -accept a username and password (hardcode or from a file, doesn't matter)
+    -input validation with a visual response, failure or success
+    -upon success, user should be redirected to image uploader page
