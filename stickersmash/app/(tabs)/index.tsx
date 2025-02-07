@@ -14,6 +14,8 @@ import EmojiPicker from "@/components/EmojiPicker";
 import EmojiList from "@/components/EmojiList";
 import EmojiSticker from "@/components/EmojiSticker";
 import ButtonComponent from "@/components/Button";
+import Pop_Up from "@/components/Pop_up";
+
 
 const PlaceholderImage = require("@/assets/images/background-image.png");
 
@@ -23,6 +25,9 @@ export default function Index() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [shakeAnimation] = useState(new Animated.Value(0));
+
+  // Pop-up state
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
   // Sticker Smash state
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
@@ -42,7 +47,7 @@ export default function Index() {
 
   const handleLogin = () => {
     if (username === correctUsername && password === correctPassword) {
-      setLoggedIn(true);
+      setIsPopUpVisible(true);
     } else {
       // Animate the input box if the login fails
       Animated.sequence([
@@ -53,6 +58,11 @@ export default function Index() {
       ]).start();
     }
   };
+
+  const handleClosePopUp = () => {
+    setIsPopUpVisible(false);
+    setLoggedIn(true);
+  }
 
   // Show login screen if the user is not logged in
   if (!loggedIn) {
@@ -77,6 +87,7 @@ export default function Index() {
           />
         </Animated.View>
         <Button title="Login" onPress={handleLogin} />
+        <Pop_Up visible={isPopUpVisible} onClose={handleClosePopUp} />
       </View>
     );
   }
