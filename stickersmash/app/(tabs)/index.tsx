@@ -112,6 +112,10 @@ export default function Index() {
     setShowAppOptions(false);
   };
 
+  const logOut = () => {
+    setLoggedIn(false);
+  }
+
   const onAddSticker = () => {
     setIsModalVisible(true);
   };
@@ -170,12 +174,16 @@ export default function Index() {
             <IconButton icon="save-alt" label="Save" onPress={onSaveImageAsync} />
           </View>
         </View>
+        
       ) : (
         <View style={styles.footerContainer}>
           <ButtonComponent theme="primary" label="Choose a photo" onPress={pickImageAsync} />
           <ButtonComponent label="Use this photo" onPress={() => setShowAppOptions(true)} />
         </View>
       )}
+      <View>
+        <Button title="Log Out" onPress={logOut}/>
+      </View>
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
@@ -194,7 +202,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#ffd33d",
+    color: "#38b0e8",
     marginBottom: 20,
   },
   input: {
@@ -222,4 +230,3 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
-

@@ -9,7 +9,9 @@ export default function AboutScreen() {
       <Text style={styles.text}>Sam Charles, 
         Destani Fountain, 
         Walden Hackle, 
-        Josh Ochs, 
+      </Text>
+      <Text style={styles.text}>
+        Josh Ochs,
         Clark Serecky, 
         Damien Smith
       </Text>
