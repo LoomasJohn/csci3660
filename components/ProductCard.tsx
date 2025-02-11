@@ -1,0 +1,1 @@
+// Display cart icon with the item count

@@ -1,0 +1,1 @@
+// Displays product information in a card format
